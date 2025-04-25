@@ -56,4 +56,4 @@ Este projeto foi desenvolvido em dupla (Wallace Alves Gomes e Jose Henrique Gald
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/tripago.git
+   git clone https://github.com/alvesrsz/tripago.git
