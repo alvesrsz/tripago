@@ -1,0 +1,16 @@
+🚀 Novo log iniciado
+📦 Dados recebidos:
+Array
+(
+    [usuario_id] => 9
+    [hotel_id] => 37
+    [data_entrada] => 2025-10-10
+    [data_saida] => 2025-10-14
+    [cpf] => 037.069.591-78
+    [telefone] => 61991534460
+    [metodo_pagamento] => pix
+    [salvar_dados] => 0
+)
+✅ Antes do prepare()
+✅ Antes do bind_param()
+✅ Antes do execute()

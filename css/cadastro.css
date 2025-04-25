@@ -1,0 +1,79 @@
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1a1a1a, #3a005e); 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(160, 0, 255, 0.5);
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    color: #fff;
+  }
+  
+  .register-form h1 {
+    text-align: center;
+    color: #a000ff;
+    margin-bottom: 24px;
+  }
+  
+  .register-form input {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .register-form input::placeholder {
+    color: #ccc;
+  }
+  
+  .register-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #a000ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  
+  .register-form button:hover {
+    background-color: #7b00cc;
+  }
+  
+  
+  .progress-bar {
+    background-color: #333;
+    border-radius: 8px;
+    height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar .progress {
+    background-color: #a000ff;
+    height: 100%;
+    width: 100%; 
+    transition: width 0.3s ease;
+  }
+  

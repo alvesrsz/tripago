@@ -1,0 +1,123 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(90deg, #0e0011, #330045); 
+  color: #fff;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+/* Cartões de hotel */
+.hotel {
+  display: flex;
+  flex-wrap: wrap;
+  background: #2a0032;
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(255, 0, 255, 0.2);
+  margin: 30px auto;
+  max-width: 1000px;
+  padding: 30px;
+  gap: 30px;
+  transition: transform 0.3s ease;
+}
+
+.hotel:hover {
+  transform: scale(1.01);
+}
+
+.hotel img {
+  width: 320px;
+  height: 220px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.info p {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.info a {
+  margin-top: 10px;
+  color: #ff00ff;
+  background-color: #1a001f;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  width: fit-content;
+  box-shadow: 0 0 10px #ff00ff88;
+  transition: all 0.2s ease;
+}
+
+.info a:hover {
+  text-decoration: underline;
+  background-color: #2a002f;
+  color: #fffacd;
+}
+.botao-voltar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.botao-voltar svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 3; 
+  stroke: white;
+  fill: none;
+}
+
+}
+
+

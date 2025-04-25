@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIA Park Executive Hotel</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="stylesheet" href="../css/pagamento.css" />
+</head>
+<body>
+<a href="/../../index.php" class="botao-voltar" title="Voltar">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="3" fill="none" />
+  </svg>
+</a>
+  <div class="container">
+
+    <div class="card hotel-info">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/58/13/3a/recepcao.jpg?w=1000&h=-1&s=1" alt="SIA Park Hotel" class="hotel-img" />
+      <h2>SIA Park Executive Hotel</h2>
+      <p class="descricao">Conforto, luxo e vista para o mar.</p>
+      <p class="preco-antigo">De R$ 756,00</p>
+      <p class="preco-atual">R$ 493,00</p>
+    </div>
+
+
+  <div class="card pagamento">
+    <h3>Complete seus dados para pagamento</h3>
+
+    <form id="formReserva">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" placeholder="000.000.000-00" required />
+
+      <label for="telefone">Número de telefone</label>
+      <input type="tel" id="telefone" placeholder="(00) 00000-0000" required />
+      
+      <label for="entrada">Data da Entrada</label>
+      <input type="date" id="entrada" required min="" />
+
+      <label for="saida">Data da Saída</label>
+      <input type="date" id="saida" required min="" />
+
+      
+        <label for="metodo">Método de pagamento</label>
+        <select id="metodo">
+          <option>Pix</option>
+          <option>Cartão de Crédito</option>
+          <option>Boleto Bancário</option>
+        </select>
+
+        <div class="salvar">
+          <input type="checkbox" id="salvar" />
+          <label for="salvar">Salvar dados para próxima reserva</label>
+        </div>
+
+        <button type="submit">Confirmar Reserva</button>
+        <p class="termos">
+          Ao confirmar, você concorda com nossos <a href="#">termos e condições</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+
+
+<script>
+
+  const saidaIso = document.getElementById("saida").value;
+  document.getElementById("saida").value = saidaIso;
+  const hoje = new Date();
+  const hojeISO = hoje.toISOString().split("T")[0];
+  document.getElementById("entrada").setAttribute("min", hojeISO);
+
+  document.getElementById("formReserva").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const entradaInput = document.getElementById("entrada").value;
+
+    if (!entradaInput) {
+      alert("Por favor, selecione uma data de entrada.");
+      return;
+    }
+
+
+    const [ano, dia, mes] = entradaInput.split("-");
+    const entrada = new Date(ano, mes - 1, dia);
+    const hojeLimpo = new Date();
+    hojeLimpo.setHours(0, 0, 0, 0);
+
+    if (entrada < hojeLimpo) {
+      alert("A data de entrada não pode ser anterior a hoje.");
+      return;
+    }
+
+    const saida = new Date(entrada);
+    saida.setDate(saida.getDate() + 4);
+
+    const entradaIso = entrada.toISOString().split("T")[0];
+    const saidaIso = saida.toISOString().split("T")[0];
+    const entradaBr = entrada.toLocaleDateString('pt-BR');
+    const saidaBr = saida.toLocaleDateString('pt-BR');
+
+    const dados = {
+      usuario_id: localStorage.getItem("usuario_id"),
+      hotel_id: 38,
+      data_entrada: entradaIso,
+      data_saida: saidaIso,
+      cpf: document.getElementById("cpf").value,
+      telefone: document.getElementById("telefone").value,
+      metodo_pagamento: document.getElementById("metodo").value.toLowerCase().replace(" ", "_"),
+      salvar_dados: document.getElementById("salvar").checked ? 1 : 0
+    };
+
+    console.log("🔄 Enviando dados:", dados);
+
+    try {
+      const resposta = await fetch('https://tripago.infy.uk/api/reservas/criar.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+      });
+
+      const resultado = await resposta.json();
+
+      if (resultado.success) {
+        alert(`Reserva confirmada!\nEntrada: ${entradaBr}`);
+        window.location.href = "/php/minhas-reservas.php";
+      } else {
+        console.error("⚠️ Erro na reserva:", resultado);
+        alert("Erro ao realizar reserva.");
+      }
+    } catch (erro) {
+      console.error("❌ Erro na requisição:", erro);
+      alert("Erro ao enviar dados. Tente novamente.");
+    }
+  });
+</script>

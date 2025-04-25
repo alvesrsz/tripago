@@ -1,0 +1,90 @@
+/* login.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1a1a1a, #3a005e); 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(160, 0, 255, 0.5);
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    color: #fff;
+  }
+  
+  .login-form h1 {
+    text-align: center;
+    color: #a000ff;
+    margin-bottom: 24px;
+  }
+  
+  .login-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .login-form input::placeholder {
+    color: #ccc;
+  }
+  
+  .login-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #a000ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-form button:hover {
+    background-color: #7b00cc;
+  }
+  
+  .login-form .forgot,
+  .login-form .signup {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  
+  .login-form .forgot {
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .login-form .forgot:hover {
+    text-decoration: underline;
+  }
+  
+  .login-form .signup {
+    color: #ccc;
+  }
+  
+  .login-form .signup a {
+    color: #a000ff;
+    text-decoration: none;
+  }
+  
+  .login-form .signup a:hover {
+    text-decoration: underline;
+  }
+  
